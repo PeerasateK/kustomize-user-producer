@@ -5,7 +5,7 @@ resources:
 - ../../base
 
 images:
-- name: asia.gcr.io/poc-innovation-iot/champ-user-inquiry
+- name: asia.gcr.io/poc-innovation-iot/champ-user-consumer
   newTag: fdf6c472
 
 
@@ -13,10 +13,10 @@ configMapGenerator:
 - behavior: merge
   files:
   - configs/config.yaml
-  name: champ-user-inquiry-configmap-file
+  name: champ-user-consumer-configmap-file
 
 secretGenerator:
 - behavior: merge
   envs:
   - secrets/secret.env
-  name: champ-user-inquiry-secret-env
+  name: champ-user-consumer-secret-env

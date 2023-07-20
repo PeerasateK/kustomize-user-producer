@@ -1,3 +1,3 @@
-# champ-user-inquiry
+# champ-user-consumer
 
 test

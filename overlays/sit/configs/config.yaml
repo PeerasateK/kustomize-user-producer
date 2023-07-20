@@ -2,7 +2,7 @@
 environment: sit
 
 app:
-  name: champ-user-inquiry
+  name: champ-user-consumer
 
 server:
   port: 8080
@@ -22,6 +22,13 @@ postgres:
   host: 172.28.240.42
   port: 5432
   pool-size: 30
+
+kafka:
+  address: 
+    - kafka.poc.internal:9092
+  topic: 
+    - CreateUserEventCHAMP
+  consume-group: userConsumerCHAMP
 
 redis:
   address: 172.28.241.3:6379

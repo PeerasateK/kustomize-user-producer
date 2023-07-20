@@ -1,32 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: champ-user-inquiry
+  name: champ-user-consumer
   labels:
-    app.kubernetes.io/name: champ-user-inquiry
-    app.kubernetes.io/instance: champ-user-inquiry
+    app.kubernetes.io/name: champ-user-consumer
+    app.kubernetes.io/instance: champ-user-consumer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: champ-user-inquiry
-      app.kubernetes.io/instance: champ-user-inquiry
+      app.kubernetes.io/name: champ-user-consumer
+      app.kubernetes.io/instance: champ-user-consumer
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: champ-user-inquiry
-        app.kubernetes.io/instance: champ-user-inquiry
+        app.kubernetes.io/name: champ-user-consumer
+        app.kubernetes.io/instance: champ-user-consumer
     spec:
       containers:
-        - name: champ-user-inquiry
-          image: asia.gcr.io/poc-innovation-iot/champ-user-inquiry:TAG
+        - name: champ-user-consumer
+          image: asia.gcr.io/poc-innovation-iot/champ-user-consumer:TAG
           imagePullPolicy: IfNotPresent
           envFrom:
             - secretRef:
-                name: champ-user-inquiry-secret-env
+                name: champ-user-consumer-secret-env
           volumeMounts:
               - mountPath: /config/config.yaml
-                name: champ-user-inquiry-configmap-file
+                name: champ-user-consumer-configmap-file
                 subPath: config.yaml
           ports:
             - name: http
@@ -52,6 +52,6 @@ spec:
               cpu: 32m
               memory: 32Mi
       volumes:
-        - name: champ-user-inquiry-configmap-file
+        - name: champ-user-consumer-configmap-file
           configMap:
-            name: champ-user-inquiry-configmap-file
+            name: champ-user-consumer-configmap-file
