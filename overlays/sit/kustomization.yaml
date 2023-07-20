@@ -5,7 +5,7 @@ resources:
 - ../../base
 
 images:
-- name: asia.gcr.io/poc-innovation-iot/example-service
+- name: asia.gcr.io/poc-innovation-iot/champ-user-inquiry
   newTag: 103eda26
 
 
@@ -13,10 +13,10 @@ configMapGenerator:
 - behavior: merge
   files:
   - configs/config.yaml
-  name: example-service-configmap-file
+  name: champ-user-inquiry-configmap-file
 
 secretGenerator:
 - behavior: merge
   envs:
   - secrets/secret.env
-  name: example-service-secret-env
+  name: champ-user-inquiry-secret-env
