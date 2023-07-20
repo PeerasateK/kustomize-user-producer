@@ -2,7 +2,7 @@
 environment: sit
 
 app:
-  name: champ-user-consumer
+  name: champ-user-producer
 
 server:
   port: 8080
@@ -28,7 +28,6 @@ kafka:
     - kafka.poc.internal:9092
   topic: 
     - CreateUserEventCHAMP
-  consume-group: userConsumerCHAMP
 
 redis:
   address: 172.28.241.3:6379

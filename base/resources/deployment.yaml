@@ -1,32 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: champ-user-consumer
+  name: champ-user-producer
   labels:
-    app.kubernetes.io/name: champ-user-consumer
-    app.kubernetes.io/instance: champ-user-consumer
+    app.kubernetes.io/name: champ-user-producer
+    app.kubernetes.io/instance: champ-user-producer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: champ-user-consumer
-      app.kubernetes.io/instance: champ-user-consumer
+      app.kubernetes.io/name: champ-user-producer
+      app.kubernetes.io/instance: champ-user-producer
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: champ-user-consumer
-        app.kubernetes.io/instance: champ-user-consumer
+        app.kubernetes.io/name: champ-user-producer
+        app.kubernetes.io/instance: champ-user-producer
     spec:
       containers:
-        - name: champ-user-consumer
-          image: asia.gcr.io/poc-innovation-iot/champ-user-consumer:TAG
+        - name: champ-user-producer
+          image: asia.gcr.io/poc-innovation-iot/champ-user-producer:TAG
           imagePullPolicy: IfNotPresent
           envFrom:
             - secretRef:
-                name: champ-user-consumer-secret-env
+                name: champ-user-producer-secret-env
           volumeMounts:
               - mountPath: /config/config.yaml
-                name: champ-user-consumer-configmap-file
+                name: champ-user-producer-configmap-file
                 subPath: config.yaml
           ports:
             - name: http
@@ -52,6 +52,6 @@ spec:
               cpu: 32m
               memory: 32Mi
       volumes:
-        - name: champ-user-consumer-configmap-file
+        - name: champ-user-producer-configmap-file
           configMap:
-            name: champ-user-consumer-configmap-file
+            name: champ-user-producer-configmap-file

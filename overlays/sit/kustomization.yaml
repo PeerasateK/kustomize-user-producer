@@ -5,7 +5,7 @@ resources:
 - ../../base
 
 images:
-- name: asia.gcr.io/poc-innovation-iot/champ-user-consumer
+- name: asia.gcr.io/poc-innovation-iot/champ-user-producer
   newTag: d245786c
 
 
@@ -13,10 +13,10 @@ configMapGenerator:
 - behavior: merge
   files:
   - configs/config.yaml
-  name: champ-user-consumer-configmap-file
+  name: champ-user-producer-configmap-file
 
 secretGenerator:
 - behavior: merge
   envs:
   - secrets/secret.env
-  name: champ-user-consumer-secret-env
+  name: champ-user-producer-secret-env

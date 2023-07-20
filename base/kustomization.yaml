@@ -6,12 +6,12 @@ resources:
   - resources/service.yaml
 
 configMapGenerator:
-  - name: champ-user-consumer-configmap-file
+  - name: champ-user-producer-configmap-file
     files:
     - configs/config.yaml
 
 secretGenerator:
-  - name: champ-user-consumer-secret-env
+  - name: champ-user-producer-secret-env
     envs:
     - secrets/secret.env
 
