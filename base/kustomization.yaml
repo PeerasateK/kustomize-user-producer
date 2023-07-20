@@ -6,8 +6,6 @@ resources:
   - resources/service.yaml
 
 configMapGenerator:
-
-  # can be other file type
   - name: champ-user-inquiry-configmap-file
     files:
     - configs/config.yaml
