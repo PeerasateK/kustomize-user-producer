@@ -1,6 +1,9 @@
 # don't forget to update config.model
 environment: sit
 
+app:
+  name: champ-user-inquiry
+
 server:
   port: 8080
   writetimeout: 15
@@ -10,20 +13,22 @@ server:
   force-retry: true
 
 log:
-  environment: dev
+  environment: production
   level: info
+  format: json
 
 postgres:
-  db-name: management_api_gw
-  host: 34.126.178.29
+  db-name: champ-db
+  host: 172.28.240.42
   port: 5432
   pool-size: 30
 
-token:
-  type: BEARER
-  expired-in-second: 300
-  refresh-expired-in-second: 86400
-  
+redis:
+  address: 172.28.241.3:6379
+  database: 1
+
+user-list-key: USER_LIST_CHAMP
+
 
 
 
