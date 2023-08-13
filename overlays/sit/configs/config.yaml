@@ -1,5 +1,5 @@
 # don't forget to update config.model
-environment: sit
+environment: loadTest
 
 app:
   name: champ-user-producer
