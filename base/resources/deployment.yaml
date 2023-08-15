@@ -46,10 +46,10 @@ spec:
             initialDelaySeconds: 10
           resources:
             limits:
-              cpu: 400m
+              cpu: 100m
               memory: 64Mi
             requests:
-              cpu: 200m
+              cpu: 50m
               memory: 32Mi
       volumes:
         - name: champ-user-producer-configmap-file
